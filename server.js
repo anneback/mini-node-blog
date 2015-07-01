@@ -6,8 +6,6 @@ var fs = require("fs");
 var path = require("path");
 var mime = require("mime");
 
-var port_number = server.listen(process.env.PORT || 3000);
-
 /*Create HTTP server*/
 var server = http.createServer(function(request, response) {
     var filePath = false;
@@ -21,6 +19,9 @@ var server = http.createServer(function(request, response) {
     var absPath = "./" + filePath;
     serverWorking(response, absPath);
 });
+
+// PORT NR
+var port_number = server.listen(process.env.PORT || 3000);
 
 /*returns plain text when server can't find page*/
 function send404(response) {
